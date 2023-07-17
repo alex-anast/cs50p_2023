@@ -8,14 +8,13 @@ output application/octet-stream instead, which is a common default.
 '''
 
 def main():
-    file_name = input("Give name of the file: ")
+    file_name = input("Give name of the file: ").lower().strip()
     file_type = check_type(file_name)
     print(file_type)
 
 
 def check_type(fn: str) -> str:
     ending = fn.split('.')[-1]
-    print(ending)
     match ending:
         case "gif":
             return "image/gif"
