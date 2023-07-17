@@ -5,7 +5,7 @@ the Universe and Everything, outputting Yes if the user inputs 42 or
 '''
 
 def main():
-    query = input("What is the greatest Question of Life? ").lower()
+    query = input("What is the greatest Question of Life? ").lower().strip()
     match query:
         case "42" | "forty-two" | "forty two":
             print("Yes")
