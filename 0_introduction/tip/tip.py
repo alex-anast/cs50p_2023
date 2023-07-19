@@ -1,7 +1,8 @@
-'''
+"""
 * dollars_to_float, format $##.##, wherein each # is a decimal digit
 * percent_to_float, format ##%, wherein each # is a decimal digit
-'''
+"""
+
 
 def main():
     dollars = dollars_to_float(input("How much was the meal? "))
@@ -20,5 +21,5 @@ def percent_to_float(p) -> float:
     return float(p[:-1]) / 100
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
