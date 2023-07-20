@@ -15,7 +15,7 @@ Ignore any input that isn't a fruit.
 
 fruit_info = {
     "apple": 130,
-    "avocado california": 50,
+    "avocado": 50,
     "banana": 110,
     "cantaloupe": 50,
     "grapefruit": 60,
@@ -39,12 +39,18 @@ fruit_info = {
 
 def main():
     user_input = input("Item: ").lower()
-    fruit_calories = getFruitCalories(user_input)
-    print(f"Calories: {fruit_calories}")
+    if valid_input(user_input):
+        print(f"Calories: {getFruitCalories(user_input)}")
+    else:
+        print("")
 
 
-def getFruitCalories(user_input):
+def getFruitCalories(user_input: str) -> int:
     return fruit_info[user_input]
+
+
+def valid_input(user_input: str) -> bool:
+    return user_input in fruit_info
 
 
 if __name__ == "__main__":
