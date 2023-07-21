@@ -33,7 +33,7 @@ def main():
     for item in get_item():
         if item in taqueriaOfFelipe_menu:
             total += taqueriaOfFelipe_menu[item]
-            print(f"Total: {total:.2f}")
+            print(f"Total: ${total:.2f}")
 
 
 # generator returns the item one at a time
@@ -43,10 +43,6 @@ def get_item():
             yield input("Item: ").title()
         except EOFError:
             break
-
-
-def item_is_valid(item: str) -> bool:
-    return True
 
 
 if __name__ == "__main__":
