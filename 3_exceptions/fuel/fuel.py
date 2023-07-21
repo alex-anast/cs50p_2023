@@ -29,7 +29,7 @@ def main():
 def get_fraction_percentage():
     while True:
         user_input = input("Fraction: ")
-        user_input = user_input.split('/')
+        user_input = user_input.split("/")
         if len(user_input) == 2:
             try:
                 numerator = int(user_input[0])
