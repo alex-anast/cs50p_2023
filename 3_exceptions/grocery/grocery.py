@@ -43,5 +43,5 @@ def sort_dict(A: dict) -> dict:
     return {k: A[k] for k in sorted(A)}
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
