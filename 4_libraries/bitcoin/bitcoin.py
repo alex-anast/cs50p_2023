@@ -21,10 +21,7 @@ import sys
 
 def main():
     number_of_bitcoins = getUserInput()
-    try:
-        coindesk_bitcoin_price = getBitcoinPrice()
-    except:
-        print("wtf 2")
+    coindesk_bitcoin_price = getBitcoinPrice()
     print(calculatePrice(number_of_bitcoins, coindesk_bitcoin_price))
 
 
