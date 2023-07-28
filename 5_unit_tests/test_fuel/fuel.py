@@ -17,30 +17,33 @@ Be sure to catch any exceptions like ValueError or ZeroDivisionError.
 
 
 def main():
-    fraction_percentage = get_fraction_percentage()
-    if fraction_percentage <= 1:
-        print("E")
-    elif fraction_percentage >= 99:
-        print("F")
+    percentage = convert(input())
+    print(gauge(percentage))
+
+
+def convert(fraction: str = "") -> int:
+    # force input to be X/Y
+    if '/' in fraction:
+        fraction = fraction.split('/')
     else:
-        print(f"{fraction_percentage:.0f}%")
+        raise ValueError
+    X = int(fraction[0])
+    Y = int(fraction[1])
+    if Y == 0:
+        raise ZeroDivisionError
+    elif X > Y:
+        raise ValueError
+    else:
+        return int(round(float(X / Y), 2) * 100)
 
 
-def get_fraction_percentage():
-    while True:
-        user_input = input("Fraction: ")
-        user_input = user_input.split("/")
-        if len(user_input) == 2:
-            try:
-                numerator = int(user_input[0])
-                denominator = int(user_input[1])
-                if numerator > denominator:
-                    continue
-                return round(float(numerator / denominator), 2) * 100
-            except ValueError as err:
-                print(f"ValueError: {err}")
-            except ZeroDivisionError as err:
-                print(f"ZeroDivisionError: {err}")
+def gauge(percentage: int) -> str:
+    if percentage <= 1:
+        return "E"
+    elif percentage >= 99:
+        return "F"
+    else:
+        return f"{percentage}%"
 
 
 if __name__ == "__main__":
