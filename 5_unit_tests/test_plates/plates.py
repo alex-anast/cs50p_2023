@@ -45,7 +45,7 @@ def check_start(plate: str) -> bool:
     return plate[0].isalpha() and plate[1].isalpha()
 
 
-# vanity plates may contain a maximum of 6 characters and a minimum of 2 characters.
+# vanity plates may contain a max 6 chars and min 2 chars.
 def check_minMax(plate: str) -> bool:
     return 2 <= len(plate) <= 6
 

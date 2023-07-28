@@ -10,7 +10,7 @@ def test_start_with_two_letters():
 
 
 def test_min_max():
-    assert is_valid() is False
+    assert is_valid("") is False
     assert is_valid("a") is False
     assert is_valid("aa") is True
     assert is_valid("aaa") is True
