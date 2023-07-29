@@ -28,7 +28,7 @@ def main():
     print(no_lines)
 
 
-def cli_input() -> str:
+def cli_input(file_extension: str = "py") -> str:
     # if exactly one argument or name exists or name ends with .py
     if len(sys.argv) < 2:
         sys.exit("Too few command-line arguments")
@@ -36,8 +36,8 @@ def cli_input() -> str:
         sys.exit("Too many command-line arguments")
     elif not os.path.isfile(sys.argv[1]):
         sys.exit("File does not exist")
-    elif sys.argv[1][-3:] != ".py":
-        sys.exit("Not a python file")
+    elif sys.argv[1].split(".")[-1] != file_extension[1:]:
+        sys.exit(f"Not a {file_extension[1:]} file")
     else:
         return sys.argv[1]
 
