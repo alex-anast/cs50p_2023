@@ -54,8 +54,16 @@ def check_input(user_input, question: str = "Hours: ") -> str:
         and user_input[4] in ["AM", "PM"]
     ):
         # check if format of numbers is correct
-        pattern1 = r"^(1[0-2]|[1-9]):(?:[0-5][0-9])$" if ":" in user_input[0] else r"^(1[0-2]|[1-9])$"
-        pattern2 = r"^(1[0-2]|[1-9]):(?:[0-5][0-9])$" if ":" in user_input[3] else r"^(1[0-2]|[1-9])$"
+        pattern1 = (
+            r"^(1[0-2]|[1-9]):(?:[0-5][0-9])$"
+            if ":" in user_input[0]
+            else r"^(1[0-2]|[1-9])$"
+        )
+        pattern2 = (
+            r"^(1[0-2]|[1-9]):(?:[0-5][0-9])$"
+            if ":" in user_input[3]
+            else r"^(1[0-2]|[1-9])$"
+        )
         matches1 = re.search(pattern=pattern1, string=user_input[0])
         matches2 = re.search(pattern=pattern2, string=user_input[3])
         if matches1 and matches2:
