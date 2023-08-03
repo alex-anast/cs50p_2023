@@ -25,7 +25,10 @@ def main():
 
 
 def parse(html: str) -> str:
-    if match := re.search(r'.+src=".+embed/(\w+)".+', html):
+    if match := re.search(
+        pattern=r'.+src="http(?:s)?://(?:www\.)?youtube.com/embed/(\w+)".+',
+        string=html,
+    ):
         return "https://youtu.be/" + match.group(1)
     return
 
