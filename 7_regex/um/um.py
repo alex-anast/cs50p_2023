@@ -21,7 +21,11 @@ def main():
 
 
 def count(line: str = "") -> int:
-    matches = re.findall(pattern=r"\bum\b", string=line, flags=re.IGNORECASE, )
+    matches = re.findall(
+        pattern=r"\bum\b",
+        string=line,
+        flags=re.IGNORECASE,
+    )
     return len(matches)
 
 
