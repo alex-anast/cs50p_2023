@@ -37,7 +37,7 @@ def main():
 def convert(img_name_in, img_name_out="out.png"):
     try:
         shirt = Image.open("shirt.png")  # .convert('RGBA')
-        img = Image.open(img_name_in).convert('RGBA')
+        img = Image.open(img_name_in).convert("RGBA")
         img_out = img
         # match photo and shirt
         img_out = ImageOps.fit(img_out, shirt.size)

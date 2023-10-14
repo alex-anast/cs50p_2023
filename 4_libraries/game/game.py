@@ -39,7 +39,7 @@ def getLevel(question="") -> int:
             level = int(input(question))
             if level > 0:
                 return level
-        except: # TypeError or ValueError
+        except:  # TypeError or ValueError
             pass
 
 

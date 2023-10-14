@@ -23,8 +23,8 @@ def main():
 
 def convert(fraction: str = "") -> int:
     # force input to be X/Y
-    if '/' in fraction:
-        fraction = fraction.split('/')
+    if "/" in fraction:
+        fraction = fraction.split("/")
     else:
         raise ValueError
     X = int(fraction[0])
