@@ -1,3 +1,5 @@
+# shirtificate.py
+
 """
 Suppose that you’d like to implement a CS50 "shirtificate",
 a PDF with an image of an I took CS50 t-shirt, shirtificate.png,

@@ -1,3 +1,5 @@
+# season.py
+
 """
 Implement a program that prompts the user for their date of birth
 in YYYY-MM-DD format and then sings prints how old they are
@@ -17,16 +19,30 @@ Ensure that your program will not raise any exceptions.
 """
 
 
-from datetime import date
 import sys
 import inflect
+from typing import Optional
+from datetime import date
 
 
 def main():
     print(convert_to_seconds(dob=input("Date of Birth: ")))
 
 
-def convert_to_seconds(dob="", dt=None) -> str:
+def convert_to_seconds(dob: str = "", dt: Optional[str] = None) -> str:
+    """
+    Convert the difference between a given date and the date of birth into seconds.
+
+    This function first validates the input date of birth. If the input is invalid, it will exit the program with an error message.
+    It then calculates the difference between the current date (or a given date) and the date of birth. The difference is returned as a string in seconds.
+
+    Args:
+        dob (str): The date of birth to calculate the difference from. It should be in the format "YYYY-MM-DD".
+        dt (Optional[str]): The date to calculate the difference to. If not provided, the current date is used. It should be in the format "YYYY-MM-DD".
+
+    Returns:
+        str: The difference between the two dates in seconds, converted into words.
+    """
     try:
         check_input(dob)
     except ValueError as ve:
@@ -51,7 +67,19 @@ def convert_to_seconds(dob="", dt=None) -> str:
     return f"{num2words(delta.total_seconds())} minutes"
 
 
-def num2words(number) -> str:
+def num2words(number: int) -> str:
+    """
+    Convert a number into its words representation.
+
+    This function uses the inflect library to convert a number into words.
+    It removes the 'and' word from the representation and capitalizes the first letter.
+
+    Args:
+        number (int): The number to convert.
+
+    Returns:
+        str: The words representation of the number.
+    """
     # Use inflect engine to convert minutes to words
     p = inflect.engine()
     words_representation = p.number_to_words(int(number), andword="")
@@ -59,7 +87,20 @@ def num2words(number) -> str:
     return words_representation.capitalize()
 
 
-def check_input(dob) -> bool:
+def check_input(dob: str) -> bool:
+    """
+    Validate the input date of birth string.
+
+    This function checks if the input is a string and if it follows the correct format (YYYY-MM-DD).
+    It raises a TypeError if the input is not a string, a ValueError if the input does not contain a "-" character,
+    and another ValueError if the input does not contain three elements when split by "-".
+
+    Args:
+        dob (str): The date of birth to validate.
+
+    Returns:
+        bool: True if the input is valid, otherwise it raises an error.
+    """
     # check type
     if not isinstance(dob, str):
         raise TypeError("TypeError: input is not a string")

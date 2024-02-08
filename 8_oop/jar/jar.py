@@ -1,3 +1,5 @@
+# jar.py
+
 """
 Suppose that you'd like to implement a cookie jar in which to store cookies.
 Implement a class called Jar with these methods:
@@ -21,7 +23,6 @@ Implement a class called Jar with these methods:
 
 
 class Jar:
-    # initialize. Constructor is __new__
     def __init__(self, capacity=12):
         if not capacity >= 0:
             raise ValueError
@@ -33,18 +34,40 @@ class Jar:
         return "🍪" * self._size
 
     def deposit(self, n):
+        """
+        Deposit a quantity into the jar.
+
+        This method increases the size of the jar by `n`. If the resulting size would exceed the jar's capacity,
+        it raises a ValueError.
+
+        Args:
+            n (int): The quantity to deposit.
+
+        Raises:
+            ValueError: If the deposit would cause the jar's size to exceed its capacity.
+        """
         if n + self._size > self._capacity:
             raise ValueError
         self._size += n
 
     def withdraw(self, n):
+        """
+        Withdraw a quantity from the jar.
+
+        This method decreases the size of the jar by `n`. If the resulting size would be less than zero, 
+        it raises a ValueError.
+
+        Args:
+            n (int): The quantity to withdraw.
+
+        Raises:
+            ValueError: If the withdrawal would cause the jar's size to be less than zero.
+        """
         if self._size - n < 0:
             raise ValueError
         self._size -= n
 
-    # decorator: function that modifies the properties
-    # of the function below to be strictly getters
-    @property  # getter
+    @property
     def capacity(self):
         return self._capacity
 
